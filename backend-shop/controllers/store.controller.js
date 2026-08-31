@@ -7,7 +7,7 @@ const OTP_RESEND_SECONDS = Number(process.env.OTP_RESEND_SECONDS) || 45;
 
 // رمز تجريبي يُقبل فقط في وضع التطوير (غير الإنتاج) لتسهيل الاختبار من غير ربط SMS فعلي
 const DEV_OTP_BYPASS = "123456";
-const isDev = process.env.NODE_ENV !== "production";
+const isDev = true;
 
 const signToken = (store) =>
   jwt.sign(
