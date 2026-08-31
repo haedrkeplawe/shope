@@ -7,6 +7,7 @@ const OTP_RESEND_SECONDS = Number(process.env.OTP_RESEND_SECONDS) || 45;
 
 // رمز تجريبي يُقبل فقط في وضع التطوير (غير الإنتاج) لتسهيل الاختبار من غير ربط SMS فعلي
 const DEV_OTP_BYPASS = "123456";
+// const isDev = process.env.NODE_ENV !== "production";
 const isDev = true;
 
 const signToken = (store) =>
@@ -250,11 +251,15 @@ exports.verifyOtp = async (req, res) => {
     await store.save();
 
     const token = signToken(store);
+    const isProd = process.env.NODE_ENV === "production";
 
+    // sameSite: "none" ضروري لأن الفرونت والباك شغالين على دومينين مختلفين وقت الإنتاج
+    // (لازم يترافق مع secure: true، والمتصفح مش بيقبل none من غير secure)
+    // محليًا (http://localhost) بنرجع لـ "lax" لأن secure:true مش هيشتغل غير على https
     res.cookie("storeToken", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
+      secure: isProd,
+      sameSite: isProd ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -351,6 +356,12 @@ exports.getMe = async (req, res) => {
   POST /api/store/logout
 */
 exports.logout = async (req, res) => {
-  res.clearCookie("storeToken");
+  const isProd = process.env.NODE_ENV === "production";
+
+  res.clearCookie("storeToken", {
+    httpOnly: true,
+    secure: isProd,
+    sameSite: isProd ? "none" : "lax",
+  });
   return res.status(200).json({ message: "تم تسجيل الخروج بنجاح" });
 };
