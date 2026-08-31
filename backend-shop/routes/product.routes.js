@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const verifyStore = require("../middleware/verifyStore");
-const uploadProductMedia = require("../middleware/uploadProductMedia");
+const uploadProductMedia = require("../middleware/uploadproductmedia");
 const {
   getProducts,
   getProductById,
