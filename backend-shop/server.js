@@ -32,6 +32,7 @@ app.use(
       "http://localhost:3000",
       "http://localhost:3001",
       "https://shope-z9xu.onrender.com",
+      "https://shope-user.onrender.com"
     ],
     credentials: true,
   }),
