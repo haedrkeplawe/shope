@@ -1,0 +1,65 @@
+/* user */
+/* favorites.css - صفحة المفضلة */
+
+.favorites-page {
+  padding: 20px;
+}
+
+.favorites-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.favorites-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.favorites-count {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ==================== الحالة الفاضية ==================== */
+.favorites-empty {
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border-color);
+  border-radius: 16px;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.favorites-empty-icon {
+  font-size: 32px;
+  color: var(--primary-color);
+  margin-bottom: 14px;
+}
+
+.favorites-empty-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.favorites-empty-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* الشاشات الأعرض (تابلت/ديسكتوب) - حالة نادرة بالموقع، شبكة أعرض شوي */
+@media (min-width: 640px) {
+  .favorites-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
