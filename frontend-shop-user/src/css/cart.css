@@ -1,0 +1,330 @@
+/* user */
+/* cart.css - صفحة سلة المشتريات + سطر المنتج بداخلها */
+
+.cart-page {
+  padding: 20px 16px 30px;
+}
+
+/* ==================== رأس الصفحة ==================== */
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.cart-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.cart-clear-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ==================== الحالة الفاضية ==================== */
+.cart-empty {
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border-color);
+  border-radius: 16px;
+  padding: 60px 20px;
+  text-align: center;
+  margin: 20px 16px;
+}
+
+.cart-empty-icon {
+  font-size: 32px;
+  color: var(--primary-color);
+  margin-bottom: 14px;
+}
+
+.cart-empty-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.cart-empty-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.cart-empty-link {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ==================== قائمة العناصر ==================== */
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.cart-item-image {
+  flex-shrink: 0;
+  width: 84px;
+  height: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--bg-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--input-icon-color);
+  font-size: 22px;
+}
+
+.cart-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-item-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-brand {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.cart-item-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 2px 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cart-item-variant {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.cart-item-variant-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.cart-item-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.cart-item-price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.cart-item-price {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.cart-item-original-price {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.cart-item-discount {
+  background-color: #c9a86a;
+  color: #000000d1;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.cart-item-adjusted-note {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  color: #b5651d;
+  margin-bottom: 6px;
+}
+
+.cart-item-unavailable {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #b3261e;
+  margin: 6px 0 10px;
+}
+
+.cart-item-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-item-stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 9px;
+  padding: 4px 12px;
+}
+
+.cart-item-stepper button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 13px;
+  display: flex;
+}
+
+.cart-item-stepper button:disabled {
+  color: var(--input-icon-color);
+}
+
+.cart-item-stepper span {
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 14px;
+  text-align: center;
+}
+
+.cart-item-remove {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-item-remove--text {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ==================== قسم القطع الغير متاحة ==================== */
+.cart-unavailable-section {
+  margin-top: 22px;
+}
+
+.cart-section-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.cart-unavailable-section .cart-item {
+  opacity: 0.75;
+}
+
+/* ==================== ملخص الطلب ==================== */
+.cart-summary {
+  margin-top: 22px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.cart-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 7px 0;
+}
+
+.cart-summary-row--savings {
+  color: #2e7d32;
+  font-weight: 700;
+}
+
+.cart-summary-row--total {
+  border-top: 1px solid var(--border-color);
+  margin-top: 6px;
+  padding-top: 14px;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.cart-summary-row--total span:last-child {
+  color: var(--primary-color);
+}
+
+.cart-checkout-btn {
+  width: 100%;
+  height: 48px;
+  margin-top: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* الشاشات الأعرض (تابلت/ديسكتوب) - حالة نادرة بالموقع */
+@media (min-width: 640px) {
+  .cart-page {
+    max-width: 560px;
+    margin: 0 auto;
+    padding-top: 24px;
+  }
+}
