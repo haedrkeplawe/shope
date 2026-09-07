@@ -1,0 +1,148 @@
+/* ==================== صفحة مناطق الشحن ====================
+   ملاحظة: هاد الملف بيعتمد على أنماط مشتركة موجودة أصلاً بـ coupons.css
+   (نفس هيكل الهيدر والجدول) وadvanced-filters.css (هيكل المودال) -
+   وبيضيف بس الأنماط الخاصة الجديدة اللي تخص مناطق الشحن تحديدًا
+*/
+
+.shipping-zones-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .shipping-zones-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .shipping-zones-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== شارات داخل جدول المناطق ==================== */
+.shipping-zone-cities-cell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 260px;
+  white-space: normal;
+}
+
+.shipping-zone-city-chip {
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.shipping-zone-free-badge {
+  display: inline-block;
+  background-color: #e0f7f4;
+  color: #0f8a72;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.shipping-zone-price-cell {
+  font-weight: 700;
+  color: var(--primary-color);
+  white-space: nowrap;
+}
+
+.shipping-zone-duration-cell {
+  white-space: nowrap;
+  color: var(--text-muted);
+  font-size: 12.5px;
+}
+
+/* ==================== مودال إضافة/تعديل منطقة شحن ==================== */
+/* بيعيد استخدام هيكل advanced-filter-modal-* بالكامل (overlay/header/body) */
+
+.shipping-zone-modal-cities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+  min-height: 20px;
+}
+
+.shipping-zone-modal-city-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 5px 8px 5px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.shipping-zone-modal-city-chip button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+
+.shipping-zone-modal-city-chip button:hover {
+  color: #ef4444;
+}
+
+.shipping-zone-modal-empty-cities {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.shipping-zone-add-city-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.shipping-zone-add-city-row input {
+  flex: 1;
+  padding: 11px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-page);
+  font-size: 13px;
+  color: var(--text-dark);
+}
+
+.shipping-zone-add-city-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--primary-color);
+  white-space: nowrap;
+}
+
+.shipping-zone-modal-hint {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: -6px;
+  margin-bottom: 14px;
+}
