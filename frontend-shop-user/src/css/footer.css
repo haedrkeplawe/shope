@@ -1,0 +1,162 @@
+/* user */
+/*
+  footer.css - فوتر الموقع (Footer.jsx)
+  ------------------------------------------------------------------
+  خلفية داكنة مقصودة (بعكس باقي الموقع الفاتح بالكامل) - نفس أسلوب أي
+  فوتر مواقع أزياء فاخرة: يفصل بصريًا عن باقي الصفحة كـ"إغلاق" للصفحة.
+  الألوان هون مستقلة عن متغيرات --bg-page/--text-dark العامة عن قصد
+  (مش مناسبة لخلفية داكنة)، ومُعرّفة محليًا بالملف نفسه
+*/
+.site-footer {
+  background-color: #1e1e1e;
+  padding: 40px 20px 24px;
+  direction: rtl;
+}
+
+/* ==================== الجزء العلوي: البراند + التواصل ==================== */
+.site-footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  text-align: right;
+}
+
+.site-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.site-footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.site-footer-logo-main {
+  font-size: 24px;
+  font-weight: 900;
+  color: #f5f0e8;
+  letter-spacing: 2px;
+  font-family: fangsong;
+}
+
+.site-footer-logo-sub {
+  font-size: 15px;
+  font-weight: 600;
+  color: #c9a86a;
+  letter-spacing: 4px;
+  font-family: fangsong;
+}
+
+.site-footer-tagline {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #a7a7a7;
+  max-width: 320px;
+}
+
+.site-footer-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.site-footer-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #474747;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d8d0c4;
+  font-size: 15px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.site-footer-social-btn:hover {
+  border-color: #c9a86a;
+  color: #c9a86a;
+}
+
+/* ==================== قسم "تواصل معنا" ==================== */
+.site-footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.site-footer-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #cfc9c2;
+  margin-bottom: 16px;
+}
+
+.site-footer-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #a7a7a7;
+  margin-bottom: 14px;
+}
+
+.site-footer-contact-row:last-child {
+  margin-bottom: 0;
+}
+
+.site-footer-contact-row svg {
+  color: #c9a86a;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ==================== الشريط السفلي: الحقوق + الروابط ==================== */
+.site-footer-bottom {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid #333333;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.site-footer-copyright {
+  font-size: 11.5px;
+  color: #6e6e6e;
+}
+
+.site-footer-links {
+  display: flex;
+  gap: 18px;
+  font-size: 12px;
+}
+
+.site-footer-links a {
+  color: #8a8a8a;
+  transition: color 0.2s;
+}
+
+.site-footer-links a:hover {
+  color: #c9a86a;
+}
+
+/* ==================== الاستجابة (شاشات أوسع - نادرة بالمتجر) ==================== */
+@media (min-width: 768px) {
+  .site-footer-top {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .site-footer-bottom {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
