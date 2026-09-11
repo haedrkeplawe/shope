@@ -3,6 +3,7 @@ const AdvancedFilter = require("../models/advancedFilter");
 const Rating = require("../models/rating");
 const Product = require("../models/product");
 const MembershipTier = require("../models/membershipTier");
+const Customer = require("../models/customer");
 
 /*
   إنشاء فئة "غير مصنف" تلقائيًا لو مش موجودة أصلًا
@@ -400,10 +401,7 @@ const seedMembershipTiers = async () => {
       console.log(`✅ تم إنشاء ${createdCount} باقة عضوية افتراضية`);
     }
   } catch (error) {
-    console.error(
-      "❌ خطأ أثناء إنشاء باقات العضوية الافتراضية:",
-      error.message,
-    );
+    console.error("❌ خطأ أثناء إنشاء باقات العضوية الافتراضية:", error.message);
   }
 };
 
@@ -429,19 +427,36 @@ const backfillProductPublishedAt = async () => {
     for (const product of products) {
       await Product.updateOne(
         { _id: product._id },
-        {
-          $set: {
-            publishedAt: product.createdAt || product._id.getTimestamp(),
-          },
-        },
+        { $set: { publishedAt: product.createdAt || product._id.getTimestamp() } },
       );
     }
 
-    console.log(
-      `✅ تم ترحيل publishedAt لـ ${products.length} منتج منشور مسبقًا`,
-    );
+    console.log(`✅ تم ترحيل publishedAt لـ ${products.length} منتج منشور مسبقًا`);
   } catch (error) {
     console.error("❌ خطأ أثناء ترحيل publishedAt للمنتجات:", error.message);
+  }
+};
+
+/*
+  مزامنة فهارس موديل Customer مع التعريف الحالي بالموديل - حل دائم
+  بالكود بدل التدخل اليدوي بقاعدة البيانات (زي مشكلة marketer.code
+  القديمة: كانت sparse:true وصارت partialFilterExpression - شوف شرح
+  كامل بـ models/customer.js). syncIndexes() من Mongoose نفسه بيقارن
+  فهارس القاعدة الفعلية مع تعريف الموديل الحالي، وبيحذف أي فهرس قديم/
+  مختلف عن التعريف الحالي وينشئ الجديد الصحيح تلقائيًا - بلا أي خطوة
+  يدوية بـ Atlas/mongosh، ودايمًا آمنة تُستدعى بكل تشغيل سيرفر (ما بتعمل
+  شي لو الفهارس أصلاً متطابقة مع التعريف)
+
+  ⚠️ لو مستقبلاً صار أي تعديل على أي فهرس بأي موديل، نفس المبدأ: عدّل
+  التعريف بالموديل، وضيف syncIndexes() له هون - بلا حاجة لأي تدخل يدوي
+  بقاعدة البيانات أبدًا
+*/
+const syncCustomerIndexes = async () => {
+  try {
+    await Customer.syncIndexes();
+    console.log("✅ تم تزامن فهارس موديل Customer بنجاح");
+  } catch (error) {
+    console.error("❌ خطأ أثناء تزامن فهارس Customer:", error.message);
   }
 };
 
@@ -451,4 +466,5 @@ module.exports = {
   backfillRatingApprovalStatus,
   seedMembershipTiers,
   backfillProductPublishedAt,
+  syncCustomerIndexes,
 };
