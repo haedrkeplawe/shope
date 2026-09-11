@@ -1,0 +1,360 @@
+/* ==================== إشعار تنبيه أعلى الصفحة ==================== */
+.advanced-filters-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+}
+
+.advanced-filters-notice svg {
+  min-width: 18px;
+  font-size: 18px;
+}
+
+/* ==================== شريط الأدوات ==================== */
+.advanced-filters-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ==================== المفتاح الداخلي بجانب اسم الفلتر ==================== */
+.advanced-filters-key {
+  font-size: 11px;
+  color: var(--text-muted);
+  background-color: var(--bg-page);
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-right: 6px;
+}
+
+/* ==================== شارة المستوى ==================== */
+.advanced-filters-level {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.advanced-filters-level--basic {
+  background-color: #dceefc;
+  color: #3b82f6;
+}
+
+.advanced-filters-level--advanced {
+  background-color: #fce7f3;
+  color: #ec4899;
+}
+
+.advanced-filters-type {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ==================== زر التوسيع (شيفرون) ==================== */
+.advanced-filters-expand-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  border: none;
+  background-color: var(--bg-page);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==================== زر تعديل الفلتر ==================== */
+.advanced-filters-edit-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary-color);
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+}
+
+.advanced-filters-edit-btn:hover {
+  background-color: var(--bg-page);
+}
+
+/* ==================== صف عرض القيم الموسّع ==================== */
+.advanced-filters-values-row td {
+  background-color: var(--bg-page);
+  padding: 14px 16px !important;
+}
+
+.advanced-filters-empty-values {
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.advanced-filters-values-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.advanced-filters-value-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.advanced-filters-value-chip--inactive {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+
+.advanced-filters-value-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+/* ==================== مودال تعديل الفلتر ==================== */
+.advanced-filter-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(44, 37, 35, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.advanced-filter-modal {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+.advanced-filter-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-card);
+  z-index: 2;
+}
+
+.advanced-filter-modal-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.advanced-filter-modal-header button {
+  border: none;
+  background: none;
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.advanced-filter-modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.advanced-filter-modal-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.advanced-filter-modal-body select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-page);
+  font-size: 14px;
+  color: var(--text-dark);
+}
+
+.advanced-filter-modal-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--bg-page);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.advanced-filter-modal-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-dark);
+}
+
+.advanced-filter-modal-save-settings {
+  width: auto;
+  align-self: flex-start;
+  padding: 10px 20px;
+  font-size: 13px;
+}
+
+/* ==================== إدارة القيم داخل المودال ==================== */
+.advanced-filter-modal-values {
+  border-top: 1px solid var(--border-color);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.advanced-filter-modal-values h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.advanced-filter-modal-values-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.advanced-filter-value-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background-color: var(--bg-page);
+}
+
+.advanced-filter-value-label {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.advanced-filter-value-usage {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.advanced-filter-value-active-toggle input {
+  width: 16px;
+  height: 16px;
+}
+
+.advanced-filter-value-icon-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  border: none;
+  background-color: var(--bg-card);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.advanced-filter-value-icon-btn:hover {
+  background-color: var(--border-color);
+}
+
+.advanced-filter-value-icon-btn--ok {
+  color: #16a34a;
+}
+
+.advanced-filter-value-icon-btn--danger {
+  color: #dc2626;
+}
+
+.advanced-filter-value-edit-input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.advanced-filter-color-input {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 6px;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.advanced-filter-add-value-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.advanced-filter-add-value-row input[type="text"] {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-page);
+  font-size: 13px;
+}
+
+.advanced-filter-add-value-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.advanced-filter-add-value-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ==================== الاستجابة ==================== */
+@media (max-width: 640px) {
+  .advanced-filter-modal-two-cols {
+    grid-template-columns: 1fr;
+  }
+}
