@@ -178,9 +178,18 @@ const customerSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-// فهرس فريد على رمز الإحالة - sparse عشان أغلب الزبائن العاديين ماعندهمش
-// كود أصلاً (null) وما لازم يتعارضوا مع بعض على القيمة الفاضية
-customerSchema.index({ "marketer.code": 1 }, { unique: true, sparse: true });
+// فهرس فريد على رمز الإحالة - ⚠️ partialFilterExpression بدل sparse:true
+// عن قصد: sparse بـ MongoDB بيستثني بس المستندات يلي الحقل غايب منها
+// كليًا، مش يلي قيمته null صراحة - وبما إنه marketer.code عنده
+// default: null، كل زبون جديد بينكتب له null فعليًا بالمستند (مش غايب)،
+// فكانوا كل الزبائن العاديين (بلا مسوّق) بيتصادموا على نفس قيمة null
+// بفهرس مفروض يكون فريد (E11000 من ثاني زبون بيسجّل). partialFilterExpression
+// بيقصر الفهرس فعليًا بس على المستندات يلي قيمتها String حقيقية - أي
+// null أو غايب بيتم تجاهله بالكامل من الفهرس، بلا أي تصادم
+customerSchema.index(
+  { "marketer.code": 1 },
+  { unique: true, partialFilterExpression: { "marketer.code": { $type: "string" } } },
+);
 
 module.exports =
   mongoose.models.Customer || mongoose.model("Customer", customerSchema);
