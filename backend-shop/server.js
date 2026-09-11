@@ -11,9 +11,14 @@ const {
   backfillRatingApprovalStatus,
   seedMembershipTiers,
   backfillProductPublishedAt,
+  syncCustomerIndexes,
 } = require("./utils/seedDefaults");
 
 connectDB().then(async () => {
+  // ⚠️ أول خطوة عن قصد - قبل أي seed/backfill تاني، عشان نضمن فهارس
+  // Customer صحيحة قبل أي عملية تسجيل حساب محتملة (شوف شرح كامل بـ
+  // utils/seedDefaults.js → syncCustomerIndexes)
+  await syncCustomerIndexes();
   await seedUncategorizedCategory();
   await seedAdvancedFilters();
   await backfillRatingApprovalStatus();
