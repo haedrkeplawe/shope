@@ -1,0 +1,207 @@
+/* user */
+
+/* ==================== الليّاوت العام ==================== */
+.site-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
+
+/* ==================== الهيدر الثابت ==================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.site-header-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.15;
+}
+
+.site-header-logo-main {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--primary-color);
+  letter-spacing: 1.7px;
+  font-family: fangsong;
+}
+
+.site-header-logo-sub {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c9a86a;
+  letter-spacing: 4px;
+  font-family: fangsong;
+}
+
+.site-header-icons {
+  display: flex;
+  align-items: center;
+  /* بترجع الترتيب البصري الصحيح (زي التصميم) داخل بيئة RTL بدون
+     الحاجة نقلب ترتيب العناصر بالـ DOM */
+  flex-direction: row-reverse;
+  gap: 4px;
+}
+
+.site-header-icon-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-dark);
+  font-size: 19px;
+  background: none;
+  border: none;
+}
+
+.site-header-dot {
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #dc2626;
+  border: 1.5px solid var(--bg-card);
+}
+
+/* شارة عددية (زي عداد المفضلة) - نفس مكان site-header-dot بس بتعرض رقم */
+.site-header-badge {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--bg-card);
+  line-height: 1;
+}
+
+/* ==================== القائمة المنسدلة (Mobile Menu) ==================== */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: var(--bg-page);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: fit-content;
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px double var(--border-color);
+}
+
+/* الشعار أول عنصر بالـ DOM بيطلع أقصى اليمين ضمن صف RTL - مطابق للتصميم */
+.mobile-menu-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.15;
+  padding-top: 2px;
+}
+
+.mobile-menu-logo-main {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--primary-color);
+  letter-spacing: 1.7px;
+  font-family: fangsong;
+}
+
+.mobile-menu-logo-sub {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c9a86a;
+  letter-spacing: 4px;
+  font-family: fangsong;
+}
+
+/* عنصر الأيقونات ثاني عنصر بالـ DOM → بيطلع أقصى اليسار (زي التصميم) -
+   وجوّاته البحث أول عنصر (ملاصق للشعار) والإغلاق تاني عنصر (أقصى الطرف) */
+.mobile-menu-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mobile-menu-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-dark);
+  font-size: 18px;
+  background: none;
+  border: none;
+}
+
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 20px 0;
+  background: var(--bg-card);
+}
+
+.mobile-menu-link {
+  padding: 15px 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: right;
+  border-bottom: 1px double var(--border-color);
+}
+.mobile-menu-link:last-of-type {
+  margin-bottom: 45px;
+}
+
+/* ==================== صفحة "قيد الإنشاء" ==================== */
+.coming-soon-page {
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border-color);
+  border-radius: 16px;
+  padding: 60px 20px;
+  margin: 20px 16px;
+  text-align: center;
+}
+
+.coming-soon-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.coming-soon-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}

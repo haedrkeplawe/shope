@@ -1,0 +1,149 @@
+/* ==================================================================
+   صفحة "الإشعارات" (الزبون)
+   ================================================================== */
+.notifications-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.notifications-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.notifications-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.notifications-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.notifications-mark-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.notifications-mark-all-btn:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.notifications-loading,
+.notifications-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ---------- قائمة الإشعارات ---------- */
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notification-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background-color: var(--bg-card);
+  text-align: right;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.notification-card:hover {
+  border-color: var(--primary-color);
+}
+
+.notification-card--unread {
+  background-color: #fdf7f5;
+}
+
+.notification-unread-dot {
+  position: absolute;
+  top: 14px;
+  inset-inline-start: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+.notification-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+.notification-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.notification-message {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.notification-time {
+  font-size: 11px;
+  color: var(--input-icon-color);
+  margin-top: 2px;
+}
+
+/* ==================== الاستجابة ==================== */
+@media (min-width: 640px) {
+  .notifications-page {
+    padding: 24px 16px;
+  }
+}
