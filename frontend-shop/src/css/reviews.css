@@ -1,0 +1,281 @@
+/* ==================================================================
+   صفحة "التقييمات والتعليقات"
+   ================================================================== */
+.reviews-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reviews-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.reviews-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.reviews-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.reviews-pending-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #fffbeb;
+  color: #d97706;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---------- الإحصائيات ---------- */
+.reviews-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ---------- شريط البحث ---------- */
+.reviews-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reviews-search {
+  flex: 1;
+  min-width: 260px;
+}
+
+/* ---------- قائمة كروت التقييمات ---------- */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.review-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.review-card-customer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-card-customer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.review-card-customer-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.review-card-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ---------- النجوم ---------- */
+.review-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.review-star {
+  font-size: 13px;
+  color: var(--border-color);
+}
+
+.review-star--filled {
+  color: #d97706;
+  fill: #d97706;
+}
+
+.review-star--half {
+  color: #d97706;
+  opacity: 0.5;
+}
+
+/* ---------- المنتج المرتبط ---------- */
+.review-card-product {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.review-card-product-image {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 6px;
+  background-color: var(--bg-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--input-icon-color);
+  font-size: 12px;
+}
+
+.review-card-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- نص التعليق ---------- */
+.review-card-comment {
+  font-size: 13px;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+/* ---------- الفوتر: شارة الحالة + الإجراءات ---------- */
+.review-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+
+.review-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.review-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.review-status-badge--warning {
+  background-color: #fffbeb;
+  color: #d97706;
+}
+
+.review-status-badge--success {
+  background-color: #f0fdf4;
+  color: #16a34a;
+}
+
+.review-status-badge--danger {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+.review-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.review-action-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.review-action-btn--approve {
+  border-color: #16a34a;
+  color: #16a34a;
+}
+
+.review-action-btn--approve:hover:not(:disabled) {
+  background-color: #f0fdf4;
+}
+
+.review-action-btn--reject {
+  border-color: #d97706;
+  color: #d97706;
+}
+
+.review-action-btn--reject:hover:not(:disabled) {
+  background-color: #fffbeb;
+}
+
+.review-action-btn--delete {
+  color: #dc2626;
+  border-color: var(--border-color);
+  padding: 7px 9px;
+}
+
+.review-action-btn--delete:hover:not(:disabled) {
+  background-color: #fef2f2;
+  border-color: #dc2626;
+}
+
+/* ==================== الاستجابة ==================== */
+@media (max-width: 1024px) {
+  .reviews-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

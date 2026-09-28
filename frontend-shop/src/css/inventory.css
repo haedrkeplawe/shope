@@ -1,0 +1,247 @@
+/* ==================== صفحة المخزون وحالة القطع ==================== */
+.inventory-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---------- الهيدر ---------- */
+.inventory-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.inventory-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.inventory-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.inventory-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inventory-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background-color 0.2s;
+}
+
+.inventory-add-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.inventory-export-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-card);
+  color: var(--text-dark);
+  padding: 12px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.inventory-export-btn:hover {
+  background-color: var(--bg-page);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* ---------- كروت الإحصائيات (قابلة للنقر كفلتر سريع) ---------- */
+.inventory-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.inventory-stat-card {
+  cursor: pointer;
+  text-align: right;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.inventory-stat-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.inventory-stat-card--active {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(143, 47, 65, 0.15);
+}
+
+.inventory-stat-card--total {
+  cursor: default;
+}
+
+.inventory-stat-card--total:hover {
+  border-color: var(--border-color);
+  transform: none;
+}
+
+/* ---------- شريط الأدوات ---------- */
+.inventory-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.inventory-search {
+  flex: 1;
+  min-width: 220px;
+}
+
+.inventory-select {
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-dark);
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 150px;
+}
+
+.inventory-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.inventory-clear-filter {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px dashed var(--primary-color);
+  background-color: #fbf5f7;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---------- الجدول ---------- */
+.inventory-table-wrapper {
+  overflow-x: auto;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.inventory-table-wrapper .categories-table th,
+.inventory-table-wrapper .categories-table td {
+  padding: 14px 12px;
+}
+
+.inventory-table-wrapper .categories-table {
+  min-width: 900px;
+}
+
+/* ---------- select حالة القطعة داخل الجدول ---------- */
+.inventory-status-select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 6px 26px 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: left 8px center;
+  background-size: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%237c7270' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  transition: opacity 0.2s;
+}
+
+.inventory-status-select:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.inventory-status-select--success {
+  background-color: #f0fdf4;
+  color: #16a34a;
+}
+
+.inventory-status-select--warning {
+  background-color: #fffbeb;
+  color: #d97706;
+}
+
+.inventory-status-select--info {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.inventory-status-select--reserved {
+  background-color: #f5f3ff;
+  color: #7c3aed;
+}
+
+.inventory-status-select--sold {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+.inventory-status-select--danger {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+.inventory-status-select--muted {
+  background-color: var(--bg-page);
+  color: var(--text-muted);
+}
+
+/* ---------- حالة عدم وجود نتائج ---------- */
+.inventory-page .products-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+}
+
+/* ---------- الاستجابة ---------- */
+@media (max-width: 1200px) {
+  .inventory-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .inventory-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .inventory-select {
+    flex: 1;
+    min-width: 130px;
+  }
+}

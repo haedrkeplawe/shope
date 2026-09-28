@@ -1,0 +1,178 @@
+/* ==================================================================
+   صفحة "المفضلة" (تحليلات أكثر المنتجات حفظًا عند الزبائن)
+   ================================================================== */
+.admin-favorites-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-favorites-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.admin-favorites-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.admin-favorites-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ---------- الإحصائيات (نفس .stat-card من categories.css) ---------- */
+.admin-favorites-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ---------- شريط الأدوات ---------- */
+.admin-favorites-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-favorites-search {
+  flex: 1;
+  min-width: 260px;
+}
+
+/* ---------- الجدول (بنية عامة من .categories-table) ---------- */
+.admin-favorites-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-favorites-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-favorites-product-sku {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.admin-favorites-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.admin-favorites-count svg {
+  color: var(--primary-color);
+}
+
+/* ---------- نسبة التحويل (شريط تقدم) ---------- */
+.admin-favorites-conversion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.admin-favorites-conversion-bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background-color: var(--bg-page);
+  overflow: hidden;
+}
+
+.admin-favorites-conversion-fill {
+  height: 100%;
+  border-radius: 999px;
+  background-color: #14b8a6;
+  transition: width 0.3s ease;
+}
+
+.admin-favorites-conversion span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+  min-width: 34px;
+}
+
+/* ---------- شارة حالة القطعة (قراءة فقط - نفس ألوان صفحة المخزون) ---------- */
+.admin-favorites-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.admin-favorites-status-badge--success {
+  background-color: #f0fdf4;
+  color: #16a34a;
+}
+
+.admin-favorites-status-badge--warning {
+  background-color: #fffbeb;
+  color: #d97706;
+}
+
+.admin-favorites-status-badge--info {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.admin-favorites-status-badge--reserved {
+  background-color: #f5f3ff;
+  color: #7c3aed;
+}
+
+.admin-favorites-status-badge--sold,
+.admin-favorites-status-badge--danger {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+.admin-favorites-status-badge--muted {
+  background-color: var(--bg-page);
+  color: var(--text-muted);
+}
+
+/* ---------- السعر (مع سعر أصلي مشطوب لو في خصم) ---------- */
+.admin-favorites-price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.admin-favorites-price-original {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* ==================== الاستجابة ==================== */
+@media (max-width: 1024px) {
+  .admin-favorites-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-favorites-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
