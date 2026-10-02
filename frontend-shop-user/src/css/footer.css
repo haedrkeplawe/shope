@@ -1,0 +1,159 @@
+/* user */
+/*
+  footer.css - فوتر الموقع (Footer.jsx)
+  ------------------------------------------------------------------
+  التصميم الجديد: خلفية عنابية (--primary-hover) بدل الداكنة القديمة،
+  وألوان النص والذهبي معرّفة محليًا هون (مش من المتغيّرات العامة
+  --text-dark/--bg-page لأنها مصمّمة لخلفية فاتحة ومش مناسبة لخلفية داكنة)
+
+  الـ padding السفلي بيترك مساحة للشريط السفلي الثابت (BottomNav)
+  عشان آخر سطر بالفوتر (الحقوق) ما يتغطّى تحته - الارتفاع من المتغيّر
+  --bottom-nav-height المعرّف بـ header.css
+*/
+.site-footer {
+  --footer-gold: #e3c07f;
+  --footer-text: #ecd7d4;
+  --footer-text-soft: #cfb0b2;
+  --footer-line: rgba(227, 192, 127, 0.28);
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  direction: rtl;
+  text-align: right;
+  background-color: var(--primary-hover);
+  padding: 36px 24px
+    calc(
+      26px + var(--bottom-nav-height, 62px) + env(safe-area-inset-bottom, 0px)
+    );
+}
+
+/* ==================== البراند + النبذة + السوشال ==================== */
+.site-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site-footer-logo {
+  display: inline-flex;
+  margin-bottom: 14px;
+}
+
+.site-footer-logo .brand-logo {
+  font-size: 38px;
+}
+
+.site-footer-logo .brand-logo-img {
+  height: 44px;
+}
+
+.site-footer-tagline {
+  font-size: 14.5px;
+  line-height: 1.9;
+  color: var(--footer-text);
+  max-width: 340px;
+}
+
+.site-footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.site-footer-social-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--footer-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--footer-gold);
+  font-size: 17px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.site-footer-social-btn:hover {
+  border-color: var(--footer-gold);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ==================== أقسام "تسوّق" و"تواصل معنا" ==================== */
+.site-footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site-footer-heading {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--footer-gold);
+  margin-bottom: 16px;
+}
+
+.site-footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15.5px;
+}
+
+.site-footer-links a {
+  color: var(--footer-text);
+  transition: color 0.2s;
+}
+
+.site-footer-links a:hover {
+  color: var(--footer-gold);
+}
+
+.site-footer-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--footer-text);
+  margin-bottom: 14px;
+}
+
+.site-footer-contact-row:last-child {
+  margin-bottom: 0;
+}
+
+.site-footer-contact-row svg {
+  color: var(--footer-gold);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ==================== الحقوق ==================== */
+.site-footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--footer-line);
+}
+
+.site-footer-copyright,
+.site-footer-note {
+  font-size: 13px;
+  color: var(--footer-text-soft);
+}
+
+/* ==================== الاستجابة (شاشات أوسع - نادرة بالمتجر) ==================== */
+@media (min-width: 768px) {
+  .site-footer {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    column-gap: 48px;
+    row-gap: 32px;
+  }
+
+  .site-footer-bottom {
+    grid-column: 1 / -1;
+  }
+}

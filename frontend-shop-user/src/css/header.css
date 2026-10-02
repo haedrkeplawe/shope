@@ -1,0 +1,325 @@
+/* user */
+/* ==================== الليّاوت العام ==================== */
+:root {
+  /* ارتفاع الشريط السفلي الثابت (BottomNav) - بيستخدمه الفوتر
+     (footer.css) عشان يترك مساحة تحته */
+  --bottom-nav-height: 62px;
+}
+
+.site-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
+
+/* ==================== شعار البراند (BrandLogo) ==================== */
+.brand-logo {
+  position: relative;
+  display: inline-block;
+  direction: ltr;
+  white-space: nowrap;
+  font-family: "Playball", "Brush Script MT", "Segoe Script", cursive;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: 0.3px;
+}
+
+.brand-logo--dark {
+  color: var(--primary-color);
+}
+
+.brand-logo--light {
+  color: #f6ecdc;
+}
+
+.brand-logo-word {
+  display: block;
+  transform: rotate(-3deg);
+}
+
+/* علامة السعر الصغيرة تحت الشعار (تفصيلة من الشعار الأصلي) */
+.brand-logo-tag {
+  position: absolute;
+  right: 26%;
+  bottom: -7px;
+  width: 8px;
+  height: 13px;
+  border: 1.3px solid var(--gold-accent);
+  border-radius: 2px 2px 4px 4px;
+}
+
+.brand-logo-img {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+
+/* ==================== الهيدر الثابت ==================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  /* القائمة أقصى اليمين، البحث+السلة أقصى اليسار، والشعار بالنص
+     (مش بالنص الهندسي بالضبط - بيتزحزح لجهة المجموعة الأضيق، وهيك
+     طالع بالتصميم تمامًا) */
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.site-header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-header-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-header-icon-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-dark);
+  font-size: 22px;
+  background: none;
+  border: none;
+}
+
+/* نقطة "في إشعار غير مقروء" - هلأ فوق زر القائمة (الجرس انتقل للقائمة) */
+.site-header-dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #dc2626;
+  border: 1.5px solid var(--bg-card);
+}
+
+/* شارة عددية (عداد السلة) - فوق يمين الأيقونة زي التصميم */
+.site-header-badge {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--bg-card);
+  line-height: 1;
+}
+
+/* ==================== الشريط السفلي الثابت (BottomNav) ==================== */
+/* z-index أقل من كل الطبقات الكاملة (درج الفلاتر 60، القائمة 50، نوافذ
+   تفاصيل المنتج 200) عشان تغطّي عليه طبيعي لما تنفتح */
+.bottom-nav {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  height: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+  padding: 0 4px env(safe-area-inset-bottom, 0px);
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--text-dark);
+}
+
+.bottom-nav-item--active {
+  color: var(--primary-color);
+}
+
+.bottom-nav-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.bottom-nav-badge {
+  position: absolute;
+  top: -6px;
+  right: -9px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 20px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--bg-card);
+  line-height: 1;
+}
+
+.bottom-nav-label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ==================== القائمة المنسدلة (Mobile Menu) ==================== */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: var(--bg-page);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: fit-content;
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px double var(--border-color);
+}
+
+/* الشعار أول عنصر بالـ DOM بيطلع أقصى اليمين ضمن صف RTL - مطابق للتصميم */
+.mobile-menu-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* عنصر الأيقونات ثاني عنصر بالـ DOM → بيطلع أقصى اليسار (زي التصميم) -
+   وجوّاته البحث أول عنصر (ملاصق للشعار) والإغلاق تاني عنصر (أقصى الطرف) */
+.mobile-menu-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mobile-menu-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-dark);
+  font-size: 20px;
+  background: none;
+  border: none;
+}
+
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 20px 0;
+  background: var(--bg-card);
+}
+
+.mobile-menu-link {
+  padding: 15px 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: right;
+  border-bottom: 1px double var(--border-color);
+}
+.mobile-menu-link:last-of-type {
+  margin-bottom: 45px;
+}
+
+/* رابط الإشعارات (آخر عنصر بالقائمة) + النقطة الحمراء جنب النص */
+.mobile-menu-link--notifications {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-menu-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #dc2626;
+}
+
+/* صف تسجيل الدخول/إنشاء حساب - يظهر بس للزائر (بدون حساب مسجل)، شوف
+   شرح كامل بـ MobileMenu.jsx */
+.mobile-menu-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 4px 40px;
+}
+
+.mobile-menu-auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: 1.5px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.mobile-menu-auth-btn--primary {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+/* ==================== صفحة "قيد الإنشاء" ==================== */
+.coming-soon-page {
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border-color);
+  border-radius: 16px;
+  padding: 60px 20px;
+  margin: 20px 16px;
+  text-align: center;
+}
+
+.coming-soon-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.coming-soon-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}

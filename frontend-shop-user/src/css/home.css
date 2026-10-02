@@ -1,0 +1,561 @@
+/* user */
+/*
+  home.css - كل ستايلات الصفحة الرئيسية (Home.jsx) - التصميم الجديد
+  ------------------------------------------------------------------
+  كل الكلاسات بتبدأ بـ home- (بدل أسماء الأقسام القديمة: hero-/why-us-/
+  brands-/journey-... يلي انحذفت مع الكومبوننتات القديمة). مفيش أي
+  صفحة تانية كانت تستخدم كلاسات home.css القديمة (تأكدت بالبحث).
+
+  المبدأ: الصفحة كلها على خلفية الموقع (--bg-page) والمحتوى بهوامش
+  جانبية 16px، والأقسام بتتباعد عن بعض بـ margin عمودي موحّد
+*/
+.home-page {
+  /* ذهبي أغمق من --gold-accent: بيظهر على الخلفية الفاتحة بوضوح أكبر
+     (السطر المميّز فوق العناوين + "الخطوة N") */
+  --home-gold: #a08030;
+  --home-text: #6f6664;
+
+  padding: 16px 16px 40px;
+}
+
+/* ==================== عناصر مشتركة ==================== */
+
+/* السطر المميّز: خط ذهبي قصير (::before) ثم النص - الخط أول عنصر فبيطلع
+   أقصى اليمين بـ RTL، مطابق للتصميم */
+.home-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--home-gold);
+}
+
+.home-eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 0;
+  border-top: 1.5px solid var(--gold-accent);
+}
+
+.home-title {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--primary-color);
+  margin-bottom: 14px;
+}
+
+.home-subtitle {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--home-text);
+}
+
+.home-text {
+  font-size: 15.5px;
+  line-height: 2;
+  color: var(--home-text);
+}
+
+.home-section {
+  margin-top: 44px;
+}
+
+.home-section-header {
+  margin-bottom: 16px;
+}
+
+.home-section-header .home-title {
+  margin-bottom: 10px;
+}
+
+/* رابط "عرض الكل": النص يمين والسهم يسار (ترتيب DOM طبيعي بـ RTL) */
+.home-section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+/* ==================== الأزرار ==================== */
+.home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 54px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1.5px solid var(--primary-color);
+  white-space: nowrap;
+}
+
+.home-btn--filled {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.home-btn--outline {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+/* زر بعرض محتواه (مش كامل العرض) ملزوق ببداية الصف (يمين) */
+.home-btn--auto {
+  width: auto;
+  align-self: flex-start;
+  padding: 0 28px;
+}
+
+/* ==================== 1) Hero ==================== */
+.home-hero-media {
+  position: relative;
+  aspect-ratio: 7 / 6;
+  border-radius: 26px;
+  overflow: hidden;
+  margin-bottom: 26px;
+  background-color: var(--border-color);
+}
+
+.home-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* شارة "١ من ١" - دائرة عنابية بحلقة كريمية، أسفل يمين الصورة */
+.home-hero-badge {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  border: 4px solid #f0e3c4;
+  outline: 1px solid #ffffff99;
+  outline-offset: -1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-align: center;
+}
+
+.home-hero-badge-main {
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.home-hero-badge-sub {
+  font-size: 10.5px;
+  line-height: 1.4;
+  color: #e6c98e;
+}
+
+.home-hero-title {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--text-dark);
+  margin-bottom: 18px;
+}
+
+.home-hero-title-accent {
+  color: var(--primary-color);
+}
+
+.home-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+/* ==================== 2) بطاقة الثقة 2×2 ==================== */
+.home-trust {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 36px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.home-trust-cell {
+  padding: 20px 18px;
+}
+
+/* الخلايا الفردية (يمين بـ RTL) لها فاصل عمودي على يسارها، والصف
+   الأول له فاصل أفقي تحته */
+.home-trust-cell:nth-child(odd) {
+  border-left: 1px solid var(--border-color);
+}
+
+.home-trust-cell:nth-child(-n + 2) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.home-trust-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background-color: #f4e3e5;
+  color: var(--primary-color);
+  font-size: 21px;
+  margin-bottom: 16px;
+}
+
+.home-trust-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.home-trust-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--home-text);
+}
+
+/* ==================== 3) جديدنا هذا الأسبوع ==================== */
+.home-products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ==================== 4) اختر ما تبحث عنه ==================== */
+.home-category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* صف قسم رئيسي: الصورة الدائرية يمين، النص بالنص، السهم أقصى اليسار */
+.home-category-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+}
+
+.home-category-avatar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--bg-page);
+  color: var(--input-icon-color);
+  font-size: 24px;
+}
+
+.home-category-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-category-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home-category-name {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.home-category-desc {
+  font-size: 13.5px;
+  color: var(--home-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-category-chevron {
+  flex-shrink: 0;
+  font-size: 22px;
+  color: var(--primary-color);
+}
+
+/* الشريط الأفقي لأنواع القطع - بيمتد لحافة الشاشة (margin سالب) وأول
+   كرت ملزوق بهامش 16px من اليمين (padding)، والسحب لليسار بـ RTL */
+.home-piece-scroller {
+  display: flex;
+  gap: 12px;
+  margin: 22px -16px 0;
+  padding: 0 16px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.home-piece-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.home-piece-card {
+  position: relative;
+  flex: 0 0 148px;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background-color: var(--bg-card);
+}
+
+.home-piece-media {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--input-icon-color);
+  font-size: 28px;
+}
+
+.home-piece-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* تعتيم عنابي متدرّج من الأسفل عشان الاسم يضل مقروء فوق أي صورة */
+.home-piece-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(111, 33, 52, 0.92) 0%,
+    rgba(111, 33, 52, 0.45) 32%,
+    transparent 62%
+  );
+}
+
+.home-piece-name {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* ==================== 5) بطاقة التنبيهات ==================== */
+.home-notify {
+  background-color: #f6f0e6;
+  border: 1px solid #efe6d8;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.home-notify-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  /* الشماعة بيسار الصورة الأصلية - منحافظ عليها ظاهرة */
+  object-position: left top;
+}
+
+.home-notify-body {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px 26px;
+}
+
+.home-notify-title {
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.45;
+  color: var(--primary-color);
+  margin-bottom: 14px;
+}
+
+.home-notify-text {
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--home-text);
+  margin-bottom: 22px;
+}
+
+/* ==================== 6) الخط الزمني (رحلة القطعة) ==================== */
+.home-timeline {
+  list-style: none;
+}
+
+.home-timeline-step {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+}
+
+/* عمود الأيقونة + الخط المنقّط يلي بيوصلها بالخطوة يلي بعدها */
+.home-timeline-rail {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 58px;
+}
+
+.home-timeline-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background-color: var(--primary-hover);
+  color: #ffffff;
+  font-size: 23px;
+}
+
+.home-timeline-line {
+  flex: 1;
+  min-height: 30px;
+  margin: 6px 0;
+  border-right: 2px dashed var(--gold-accent);
+}
+
+.home-timeline-body {
+  padding-bottom: 22px;
+}
+
+.home-timeline-step:last-child .home-timeline-body {
+  padding-bottom: 0;
+}
+
+.home-timeline-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--home-gold);
+  margin-bottom: 3px;
+}
+
+.home-timeline-title {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.home-timeline-text {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--home-text);
+}
+
+/* ==================== 7) قصتنا + قيّم مشترياتك ==================== */
+.home-story-image-wrap {
+  aspect-ratio: 4 / 3.2;
+  border-radius: 28px;
+  overflow: hidden;
+  margin-bottom: 26px;
+  background-color: var(--border-color);
+}
+
+.home-story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 22px;
+}
+
+.home-value-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 18px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.home-value-chip svg {
+  font-size: 17px;
+  color: var(--primary-color);
+}
+
+.home-rate-card {
+  margin-top: 40px;
+  padding: 24px 22px 26px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 26px;
+}
+
+.home-rate-stars {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+  font-size: 20px;
+  color: var(--gold-accent);
+}
+
+.home-rate-title {
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+.home-rate-text {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--home-text);
+  margin-bottom: 22px;
+}
+
+/* ==================== الاستجابة (شاشات أوسع - نادرة بالمتجر) ==================== */
+@media (min-width: 768px) {
+  .home-page {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .home-products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
