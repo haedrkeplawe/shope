@@ -1,0 +1,20 @@
+# ⚠️ ملفات الأسرار (كلمات سر قاعدة البيانات، مفاتيح Cloudinary/Stripe/...)
+# - ممنوع تنرفع على GitHub أبدًا. قيمها على Render بتنحط من إعدادات
+# الخدمة (Environment)، مش من المستودع
+.env
+.env.*
+!.env.example
+
+# المكتبات - بتنزل تلقائيًا بـ npm install (على Render وعلى أي جهاز)
+node_modules/
+
+# ناتج البناء - Render بيبنيه بنفسه
+build/
+coverage/
+
+# ملفات مؤقتة وسجلات
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
