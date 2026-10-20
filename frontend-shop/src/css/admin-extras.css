@@ -1,0 +1,54 @@
+/* ==================================================================
+   إضافات صغيرة مرتبطة بميزات "المفضلة" و"السلات المتروكة" الجديدة -
+   محفوظة بملف مستقل بدل التعديل المباشر على deals.css/coupons.css
+   الأصليين، لتفادي أي تعارض مع تعديلات مستقبلية عليهم
+   ================================================================== */
+
+/* ---------- عنصر اختيار عرض (SelectOfferModal) ----------
+   بيعيد استخدام هيكل .product-picker-item بالكامل (من deals.css) بس
+   كزر (button) بدل label/checkbox - اختيار مفرد (عرض واحد) بدل متعدد */
+.select-offer-item {
+  width: 100%;
+  border: none;
+  background: none;
+  text-align: right;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.select-offer-item:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.select-offer-item-icon {
+  background-color: var(--bg-page);
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+/* ---------- خيار "إرسال إشعار فوري للزبون" بفورم الكوبون ---------- */
+.coupon-notify-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background-color: var(--bg-page);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.coupon-notify-toggle svg {
+  color: #d97706;
+}
+
+.coupon-notify-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+}
