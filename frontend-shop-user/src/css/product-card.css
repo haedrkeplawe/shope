@@ -1,0 +1,181 @@
+/* user */
+/* product-card.css - كرت منتج مشترك، مستخدم بأكتر من صفحة */
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  overflow: hidden;
+  padding-bottom: 12px;
+}
+
+.product-card-image {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--bg-page);
+  margin-bottom: 12px;
+}
+
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--input-icon-color);
+  font-size: 28px;
+}
+
+.product-card-wishlist {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  border: none;
+}
+
+/* حالة "مضاف للمفضلة" - قلب معبّى بدل حدود بس */
+.product-card-wishlist--active {
+  background-color: #ffffff;
+  color: var(--primary-color);
+}
+.product-card-wishlist--active svg {
+  fill: currentColor;
+}
+
+.product-card-condition-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--primary-color);
+  color: #f3e6c8;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+.product-card-discount-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: var(--gold-accent);
+  color: #000000d1;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 8px;
+  font-family: sans-serif;
+}
+
+.product-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 12px;
+}
+
+.product-card-brand {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.product-card-name {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.product-card-rating-value {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.product-card-rating-count {
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+/* الفاصل تحت السعر منقّط بالتصميم الجديد (كان خط عادي) */
+.product-card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+  border-bottom: 1.3px dashed #c9a86a99;
+  padding-bottom: 8px;
+}
+
+.product-card-price {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.product-card-original-price {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* صف المقاس + "قطعة واحدة فقط": المقاس أول عنصر بالـ DOM → يمين،
+   وشارة "قطعة واحدة فقط" يسار (space-between) */
+.product-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.product-card-size {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--primary-color);
+  background-color: #f4e3e5;
+  padding: 3px 11px;
+  border-radius: 8px;
+}
+
+.product-card-single {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.product-card-single svg {
+  font-size: 14px;
+  flex-shrink: 0;
+}
